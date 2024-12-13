@@ -43,6 +43,37 @@ public class Solution {
         return dummyHead.next;
 
     }
+
+    public int lengthOfLongestSubstring(String s) {
+
+        int longest = 0;
+        if (s.isEmpty()) {
+            return longest;
+        }
+        int l = 0;
+        int r = 0;
+        int max = 0;
+
+        while (l < s.length() && r < s.length() && l <= r) {
+            if (l == r) {
+                r++;
+                max = 1;
+            } else {
+                String substring = s.substring(l, r);
+                if (substring.indexOf(s.charAt(r)) == -1) {
+                    max++;
+                    r++;
+                } else {
+                    l++;
+                    max--;
+                }
+            }
+            longest = Math.max(max, longest);
+        }
+
+        System.out.println(longest);
+        return longest;
+    }
 }
 
 
