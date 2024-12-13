@@ -10,6 +10,11 @@ function main() {
     arr2ListNode(8, 9, 0, 0, 1),
     "addTwoNumbers error"
   );
+  assert.deepEqual(
+    solution.lengthOfLongestSubstring("abcabcbb"),
+    3,
+    "lengthOfLongestSubstring error"
+  );
 }
 
 main();

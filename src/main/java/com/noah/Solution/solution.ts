@@ -53,4 +53,34 @@ export class Solution {
     }
     return head.next;
   }
+
+  lengthOfLongestSubstring(s: string): number {
+    let longest = 0;
+    if (!s) {
+      return longest;
+    }
+
+    let l = 0;
+    let r = 0;
+    let max = 0;
+
+    while (l < s.length && r < s.length && l <= r) {
+      if (l === r) {
+        r++;
+        max = 1;
+      } else {
+        const sub = s.slice(l, r);
+        if (~sub.indexOf(s[r])) {
+          max++;
+          r++;
+        } else {
+          max--;
+          l++;
+        }
+      }
+      longest = Math.max(longest, max);
+    }
+
+    return longest;
+  }
 }
